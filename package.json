@@ -1,0 +1,37 @@
+{
+  "name": "feathers-mongoose-acl",
+  "version": "1.0.0",
+  "description": "Providing document and field based access layer for mongoose documents",
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha dist/test/**/*.js",
+    "test:local": "ts-mocha -p tsconfig.json test/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naorzr/feathers-mongoose-acl.git"
+  },
+  "author": "Naor Zruk <naorzruk@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naorzr/feathers-mongoose-acl/issues"
+  },
+  "homepage": "https://github.com/naorzr/feathers-mongoose-acl#readme",
+  "devDependencies": {
+    "@feathersjs/feathers": "^4.3.0",
+    "@types/expect": "^1.20.4",
+    "@types/feathersjs__errors": "^3.3.2",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2",
+    "ts-mocha": "^6.0.0",
+    "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@feathersjs/errors": "^4.3.0",
+    "feathers-hooks-common": "^4.20.7"
+  }
+}
