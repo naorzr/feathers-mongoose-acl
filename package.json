@@ -1,9 +1,10 @@
 {
   "name": "feathers-mongoose-acl",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Providing document and field based access layer for mongoose documents",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
+  "keywords": ["feathers","mongoose","acl","permission","feathersjs","feathers-mongoose","access-layer","access layer"],
   "scripts": {
     "build": "tsc",
     "test": "mocha dist/test/**/*.js",
