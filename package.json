@@ -4,11 +4,21 @@
   "description": "Providing document and field based access layer for mongoose documents",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
-  "keywords": ["feathers","mongoose","acl","permission","feathersjs","feathers-mongoose","access-layer","access layer"],
+  "keywords": [
+    "feathers",
+    "mongoose",
+    "acl",
+    "permission",
+    "feathersjs",
+    "feathers-mongoose",
+    "access-layer",
+    "access layer"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "mocha dist/test/**/*.js",
-    "test:local": "ts-mocha -p tsconfig.json test/**/*.ts"
+    "test:local": "ts-mocha -p tsconfig.json test/**/*.ts",
+    "cover": "istanbul cover node_modules/mocha/bin/_mocha dist/test/*.js - - -R"
   },
   "repository": {
     "type": "git",
@@ -27,6 +37,8 @@
     "@types/feathersjs__errors": "^3.3.2",
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.6",
+    "istanbul": "^0.4.5",
     "mocha": "^6.2.0",
     "prettier": "^1.18.2",
     "ts-mocha": "^6.0.0",
