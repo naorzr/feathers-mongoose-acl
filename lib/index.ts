@@ -27,6 +27,10 @@ const AccessLayerHook = <T extends { [role: string]: any }, K extends keyof T>(
   userRole: K,permissions: ACCESS_LAYER<T, K>): Hook => context => {
   const methodRules =
     permissions.DOC_ACCESS[context.method as specificServiceMethods];
+  if(!methodRules){
+    throw new Forbidden("Not allowed to perform this request");
+  }
+
   const rules = methodRules[userRole] || methodRules["*"];
   let criteria = {};
   // If rules exist, get the query criterias for them
@@ -102,7 +106,7 @@ export interface ACCESS_LAYER<
   K extends keyof T
 > {
   DOC_ACCESS: {
-    [key in specificServiceMethods]: {
+    [key in Partial<specificServiceMethods>]: {
       [key in K | "*"]?: ((context: HookContext) => criteria) | boolean;
     };
   };
