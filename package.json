@@ -21,6 +21,7 @@
   "homepage": "https://github.com/naorzr/feathers-mongoose-acl#readme",
   "devDependencies": {
     "@feathersjs/feathers": "^4.3.0",
+    "@types/chai": "^4.2.0",
     "@types/expect": "^1.20.4",
     "@types/feathersjs__errors": "^3.3.2",
     "@types/mocha": "^5.2.7",
