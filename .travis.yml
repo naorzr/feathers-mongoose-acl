@@ -4,5 +4,5 @@ node_js :
 install:
   - npm ci
 script:
-  - npm build
-  - npm test
+  - npm run build
+  - npm run test
