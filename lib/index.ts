@@ -24,7 +24,8 @@ type criteria = any;
  * @constructor
  */
 const AccessLayerHook = <T extends { [role: string]: any }, K extends keyof T>(
-  userRole: K,permissions: ACCESS_LAYER<T, K>): Hook => context => {
+  userRoleFromContext: (context: HookContext) => K,permissions: ACCESS_LAYER<T, K>): Hook => context => {
+  const userRole = userRoleFromContext(context)
   const methodRules =
     permissions.DOC_ACCESS[context.method as specificServiceMethods];
   if(!methodRules){
@@ -68,8 +69,8 @@ const AccessLayerHook = <T extends { [role: string]: any }, K extends keyof T>(
  * @param acessLayer
  * @constructor
  */
-const AccessLayerHookExternal = <T extends { [role: string]: any }, K extends keyof T>(userRole: K,acessLayer: ACCESS_LAYER<T,K>) =>
-  iff(isProvider("external"), AccessLayerHook(userRole, acessLayer));
+const AccessLayerHookExternal = <T extends { [role: string]: any }, K extends keyof T>(userRoleFromContext: (context: HookContext) => K,acessLayer: ACCESS_LAYER<T,K>) =>
+  iff(isProvider("external"), AccessLayerHook(userRoleFromContext, acessLayer));
 
 /**
  * Declarative Function for creating mongoose queries in the permission object
