@@ -3,7 +3,6 @@ node_js :
   - stable
 install:
   - npm ci
-build:
-  -npm build
 script:
+  - npm build
   - npm test
