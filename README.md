@@ -33,9 +33,10 @@ const access: ACCESS_LAYER = {
   }
 }
 
+const getUserRoleFromContext = context => context.params.user.role
 
 const before: Partial<HookMap> = {
-  all: [index.authenticate(['jwt']), AccessLayerHookExternal(access)]
+  all: [index.authenticate(['jwt']), AccessLayerHookExternal(getUserRoleFromContext, access)]
 }
 ```
 
@@ -45,7 +46,8 @@ in doc access, we defined for each method the user roles that have access to a d
 for example in "find" method, we give admin user permission to access all documents, but for all other user roles
 we only allow a user to access a document if he created it or if he is assigned to it.
 2. we defined none patchable fields, as their name indicates, once defined for a role, if he tries to modify them through patch, he will recieve an error.(if defined ```throw: true```)
-3. finally, we pass in the access object to the service before hook
+3. we define a way to extract user role from the given context
+4. finally, we pass in the userRoleExtraction function and access object to the service before hook
 
 
 ### Typescript
