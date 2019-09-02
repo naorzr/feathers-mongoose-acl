@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/naorzr/feathers-mongoose-acl.svg?branch=master)](https://travis-ci.org/naorzr/feathers-mongoose-acl)
 [![Coverage Status](https://coveralls.io/repos/github/naorzr/feathers-mongoose-acl/badge.svg?branch=master)](https://coveralls.io/github/naorzr/feathers-mongoose-acl?branch=master)
+[![TypeScript](https://badges.frapsoft.com/typescript/code/typescript.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
+[![License](https://badgen.net/badge/mit/license/lodash)](https://badgen.net/badge/npm/license/lodash)
 # feathers-mongoose-acl
 feathers-mongoose-acl (or fma for short) gives you the power to add a simple yet powerful access layer mechanism to your feathers-mongoose app.
 
