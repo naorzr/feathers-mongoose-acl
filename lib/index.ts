@@ -23,8 +23,8 @@ type criteria = any;
  * @param permissions
  * @constructor
  */
-const AccessLayerHook = <T extends { [role: string]: any }, K extends keyof T>(
-  userRoleFromContext: (context: HookContext) => K,permissions: ACCESS_LAYER<T, K>): Hook => context => {
+const AccessLayerHook = <T extends { [role: string]: any }>(
+  userRoleFromContext: (context: HookContext) => keyof T,permissions: ACCESS_LAYER<T>): Hook => context => {
   const userRole = userRoleFromContext(context)
   const methodRules =
     permissions.DOC_ACCESS[context.method as specificServiceMethods];
@@ -69,7 +69,7 @@ const AccessLayerHook = <T extends { [role: string]: any }, K extends keyof T>(
  * @param acessLayer
  * @constructor
  */
-const AccessLayerHookExternal = <T extends { [role: string]: any }, K extends keyof T>(userRoleFromContext: (context: HookContext) => K,acessLayer: ACCESS_LAYER<T,K>) =>
+const AccessLayerHookExternal = <T extends { [role: string]: any }, K extends keyof T>(userRoleFromContext: (context: HookContext) => K,acessLayer: ACCESS_LAYER<T>) =>
   iff(isProvider("external"), AccessLayerHook(userRoleFromContext, acessLayer));
 
 /**
@@ -103,16 +103,15 @@ const OR = (...args: Array<(context: HookContext) => {}>) => (
  * Access Layer structure
  */
 export interface ACCESS_LAYER<
-  T extends { [role: string]: any },
-  K extends keyof T
+  T extends { [role: string]: any }
 > {
   DOC_ACCESS: {
-    [key in Partial<specificServiceMethods>]: {
-      [key in K | "*"]?: ((context: HookContext) => criteria) | boolean;
+    [key in specificServiceMethods]?: {
+      [key in keyof T | "*"]?: ((context: HookContext) => criteria) | boolean;
     };
   };
   NONE_PATCHABLE_FIELDS?: {
-    [key in K | "*"]?: { fields: string[]; throw: boolean } | {}
+    [key in keyof T | "*"]?: { fields: string[]; throw: boolean } | {}
   };
 }
 export { AccessLayerHook, AND, OR, AccessLayerHookExternal };
