@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/naorzr/feathers-mongoose-acl.svg?branch=master)](https://travis-ci.org/naorzr/feathers-mongoose-acl)
 [![Coverage Status](https://coveralls.io/repos/github/naorzr/feathers-mongoose-acl/badge.svg?branch=master)](https://coveralls.io/github/naorzr/feathers-mongoose-acl?branch=master)
 # feathers-mongoose-acl
-feathers-mongoose-acl (or fma for short) gives you the power to adds a simple yet powerful access layer mechanism to your feathers-mongoose app.
+feathers-mongoose-acl (or fma for short) gives you the power to add a simple yet powerful access layer mechanism to your feathers-mongoose app.
 
 fma comes built it with two layers of access control.    
 Document level access control and Field level access control.
